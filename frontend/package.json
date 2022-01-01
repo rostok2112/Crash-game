@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "ws": "^8.4.0"
+  },
+  "optionalDependencies": {
+    "utf-8-validate": "^5.0.7"
+  }
+}

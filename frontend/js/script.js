@@ -1,6 +1,3 @@
-const TIME_PER_ROUNDS = 5;
-const TIME_AFTER_ROUND = 2;
-
 const myWs = new WebSocket('ws://localhost:8080');
 myWs.onopen = function () {
   console.log('подключился');

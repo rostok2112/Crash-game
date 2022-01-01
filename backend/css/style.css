@@ -1,0 +1,166 @@
+
+body {
+margin:auto;
+position: relative;
+width: 1440px;
+height: 900px;
+
+background: #16171B;
+
+}
+
+
+header {
+	height:  100px;
+	position:  relative;
+	padding:  15px;
+	font-family: 'Rubik Beastly', cursive;
+	font-size: 40px;
+	padding-left: 120px;
+	text-align: right;
+}
+
+
+#panel1 {
+position: absolute;
+width: 449px;
+height: 340px;
+left: 460px;
+top: 280px;
+
+background: #34393D;
+border: 3px solid #3D4249;
+box-sizing: border-box;
+box-shadow: inset 20px 30px 60px 1px #25282D;
+border-radius: 20px;
+}
+
+
+#panel1Head {
+	position: relative;
+width: 443px;
+height: 158px;
+top: 10%;
+left: 30%;
+
+
+
+}
+
+.InfoHead{
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 19px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.4);
+}
+
+.InfoHead.Label {
+	position: relative;
+	font-size: 16px;
+}
+.InfoHead.Counter {
+	position: relative;
+	font-weight: bold;
+	font-size: 32px;
+	top:32px;
+}
+
+#panel1Body {
+position: relative;
+width: 443px;
+height: 54px;
+left: 0;
+top: 0;
+}
+
+#balanceInfo{
+	position: relative;
+	left: 10%;
+	top: 100%;
+
+}
+.BalanceInfo {
+	
+	font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 19px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(255, 255, 255, 0.4);
+}
+
+.BalanceInfo.Counter {
+	position: relative;
+	top: 30px;
+	left: -25%;
+	font-weight: bold;
+	font-size: 32px;
+}
+
+#formBet{
+	position: absolute;
+	width: 132px;
+	height: 54px;
+	left: 35%;
+	top: 100%;
+
+
+}
+#inputBet{
+	width: 100%;
+	height: 100%;
+border-color: #292C33;
+background: #282B30;
+box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.2), inset -4px -4px 6px rgba(255, 255, 255, 0.12);
+border-radius: 15px;
+text-align: center;
+	color: rgba(255, 255, 255, 0.4);
+	display: block;
+	padding: 4px 5px;
+	background-color: #292C33;
+
+  }
+  #inputBet::placeholder{
+	opacity: 0.4;
+	
+  }
+
+  #buttonBet {
+	position: absolute;
+	width: 93px;
+	height: 93px;
+	left: 75%;
+	top: 67%;
+	
+  }
+
+  #btnBet {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	border-radius: 100%;
+	border-color: #292C33;
+	background: #292C33;
+	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3), -5px -5px 20px rgba(255, 255, 255, 0.12), inset -4px -4px 10px rgba(255, 255, 255, 0.12), inset 4px 4px 10px rgba(0, 0, 0, 0.25);
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 16px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(255, 255, 255, 0.4);
+
+
+  }

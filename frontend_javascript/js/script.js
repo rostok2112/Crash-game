@@ -1,4 +1,4 @@
-const myWs = new WebSocket('ws://localhost:8080');
+const myWs = new WebSocket('ws://localhost:8381');
 myWs.onopen = function () {
   console.log('подключился');
 };
@@ -60,7 +60,6 @@ myWs.onmessage = function (message) {
             break;
           case "ROUND_ENDS":
             multiplyStr.style.position = "absolute";
-            multiplyStr.style.left = "-45%";
             multiplyStr.textContent =  'x' 
                                     +  parseFloat(jsonMessage.totalMult).toFixed(3) 
                                     + " - Crashed!";

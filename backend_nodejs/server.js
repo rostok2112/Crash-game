@@ -37,7 +37,6 @@ function wsSendLost(userClient, bet){
   userClient.send(JSON.stringify({action: 'LOST', bet: bet}));
 }
 function onConnect(wsNewClient) {
-    wsNewClient;
     console.log('Новый пользователь');
     wsNewClient.on('message', function(message) {
     try {

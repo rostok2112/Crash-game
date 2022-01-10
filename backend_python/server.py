@@ -62,16 +62,20 @@ async def connection_handler(websocket):
 
     print('connection end', cntr)   
 
-async def send_nums_with_delay(userClient, typeofAction, preText, afterText, startNumber, finalNumber, delta, isSigned, millisec_delay,  placeToCopy): 
+async def send_nums_with_delay(userClient, typeofAction, preText, afterText, startNumber, finalNumber, delta, isSigned, millisec_delay,  funcToCopyField ): 
     if isSigned:
         delta = -delta
     for i in numpy.arange(startNumber, finalNumber, delta): 
         tmp = round(i, 3)
-        if placeToCopy:
-            userClient.cntMult = tmp
+        if funcToCopyField:
+            funcToCopyField(userClient, tmp)
+            #userClient.cntMult = tmp
         await userClient.send( json.dumps( {'action': typeofAction, 'data': preText + str(tmp) + afterText}))
         await asyncio.sleep(millisec_delay/1000) #millisecond sleep   
-                                                                    
+
+def copyCntMult(userClient, cntMult):
+    userClient.cntMult = cntMult
+                                                         
 async def wsSendCntBalance(userClient, cntBalance):
     await userClient.send( json.dumps( {'action': 'CNT_BALANCE', 'balance': cntBalance}))
 async def wsSendRoundPreparing(userClient):
@@ -90,8 +94,6 @@ async def wsSendBetted(userClient):
     await userClient.send( json.dumps( {'action': 'BETTED'}))
 
 
-CHANCE_LESS_THAN_2 = 90
-MAX_INT_MULTIPLY = 100
 TIME_PER_ROUNDS = 5
 TIME_AFTER_ROUND = 2
 DELAY_PER_DELTA_MULT = 0.002
@@ -100,7 +102,7 @@ async def main_logic(userClient):
 
     while(True):
         
-        userClient.totalMult = numpy.random.exponential(1, 100)[0] + 1
+        userClient.totalMult = numpy.random.exponential(0.95) + 1
 
         await wsSendCntBalance(userClient, userClient.cntBalance)
         userClient.isRoundPreparing = True
@@ -122,7 +124,7 @@ async def main_logic(userClient):
         else:   #round started, user  betted
             pass 
     
-        await send_nums_with_delay(userClient, "CNT_MULTIPLY", "x", "", 1.01, userClient.totalMult, DELAY_PER_DELTA_MULT, False, 4, placeToCopy=True)
+        await send_nums_with_delay(userClient, "CNT_MULTIPLY", "x", "", 1.01, userClient.totalMult, DELAY_PER_DELTA_MULT, False, 4, copyCntMult)
         if userClient.isBetted and not userClient.isTook:    #lost
             await wsSendLost(userClient, userClient.cntBet)
             await wsSendCntBalance(userClient, userClient.cntBalance)

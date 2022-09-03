@@ -1,4 +1,4 @@
-const myWs = new WebSocket('ws://localhost:8381');
+const myWs = new WebSocket('ws://localhost:8080');
 myWs.onopen = function () {
   console.log('подключился');
 };
